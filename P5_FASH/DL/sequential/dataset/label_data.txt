@@ -1,0 +1,2 @@
+color,style,part,season,category
+18,13,5,4,39
