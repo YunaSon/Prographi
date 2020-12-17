@@ -1,8 +1,7 @@
 # 프로그라피 활동내역
 
-- 분야: 딥러닝
-  - CNN 
-  - 기술스택: PyTorch, Tensorflow, Flask
+- 분야: 딥러닝, CNN(Convolutional Nueral Network)
+- 기술스택: PyTorch, Tensorflow, Flask
 - 활동기간: 2019.09 ~ 2020.12 (기수 5기 ~ 6.5기)
 - 서비스개발
   1. 5기: FASH, ios App
