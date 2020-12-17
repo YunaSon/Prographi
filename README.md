@@ -23,3 +23,4 @@ https://github.com/YunaSon/Prographi/tree/master/P6_LEMORNING
 ## 6.5기
 
 기술스택: flask
+https://github.com/YunaSon/Prography/tree/master/P6-5_LEMORNING
