@@ -59,8 +59,8 @@ def tag():
 
 ## Result
 
-음악 파일을 upload한다. 
+1. 음악 파일을 upload한다. 
 <img src='https://github.com/YunaSon/Prography/blob/master/P6-5_LEMORNING/img/r1.png'>
 
-관련 Tag를 반환한다. 
+2. 관련 Tag를 반환한다. 
 <img src='https://github.com/YunaSon/Prography/blob/master/P6-5_LEMORNING/img/r2.png'>
