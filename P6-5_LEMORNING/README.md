@@ -10,7 +10,7 @@
 
 ## code
 app.py
-`
+```
 
 from flask import Flask, redirect, render_template, request, url_for, flash
 import os
@@ -54,7 +54,7 @@ def tag():
             return '<h1>Error</h1>'
 
     return render_template('tag.html')
-`
+```
 
 
 ## Result
