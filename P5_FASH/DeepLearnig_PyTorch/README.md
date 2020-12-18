@@ -86,3 +86,6 @@ class CNN(nn.Module):
         return out
 
 ```
+
+## 진행상황
+Basic CNN 과 MobileNetV2를 이용하여 Category항목에 대해서 Multi Classification 구현 완료
