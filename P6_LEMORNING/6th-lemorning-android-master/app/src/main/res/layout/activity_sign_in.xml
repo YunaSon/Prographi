@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="org.prography.lemorning.src.viewmodel.SignInViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_logo_sign_in"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_lemorning"
+                    android:layout_marginTop="78dp"
+                    android:transitionName="logo_lemorning"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/et_id_sign_in"/>
+
+                <EditText
+                    android:id="@+id/et_id_sign_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_logo_sign_in"
+                    app:layout_constraintBottom_toTopOf="@id/et_pw_sign_in"
+                    android:background="@drawable/background_round_4_border_efefef"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="78dp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:inputType="textEmailAddress"
+                    android:text="@={viewmodel.email}"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#bbbbbb"
+                    android:textSize="12sp"
+                    android:hint="Enter your Email"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp" />
+
+                <EditText
+                    android:id="@+id/et_pw_sign_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_id_sign_in"
+                    app:layout_constraintBottom_toTopOf="@id/mbtn_signin_sign_in"
+                    android:background="@drawable/background_round_4_border_efefef"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:inputType="textPassword"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#bbbbbb"
+                    android:textSize="12sp"
+                    android:text="@={viewmodel.password}"
+                    android:hint="Enter your Password"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbtn_signin_sign_in"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:text="Sign In"
+                    android:textAllCaps="false"
+                    android:letterSpacing="0"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/timeburnerbold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_pw_sign_in"
+                    app:layout_constraintBottom_toTopOf="@id/mbtn_signup_sign_in"
+                    android:onClick="@{() -> viewmodel.onClickSignIn()}"
+                    android:padding="0dp"
+                    app:cornerRadius="4dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbtn_signup_sign_in"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:text="Sign Up"
+                    android:textAllCaps="false"
+                    android:letterSpacing="0"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/timeburnerbold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mbtn_signin_sign_in"
+                    app:layout_constraintBottom_toTopOf="@id/tv_social_login_sign_in"
+                    android:padding="0dp"
+                    app:cornerRadius="4dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_social_login_sign_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#bbbbbb"
+                    android:fontFamily="@font/timeburnernormal"
+                    android:text="Start with Social Account"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mbtn_signup_sign_in"
+                    app:layout_constraintBottom_toTopOf="@id/iv_kakao_sign_in"
+                    android:layout_marginTop="32dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_kakao_sign_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_kakao"
+                    android:layout_marginTop="17dp"
+                    android:elevation="4dp"
+                    android:background="@drawable/background_oval_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_naver_sign_in"
+                    app:layout_constraintTop_toBottomOf="@id/tv_social_login_sign_in"
+                    app:layout_constraintBottom_toTopOf="@id/mbtn_skip_sign_in"/>
+
+                <ImageView
+                    android:id="@+id/iv_naver_sign_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_naver"
+                    android:background="@drawable/background_oval_white"
+                    android:elevation="4dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_kakao_sign_in"
+                    app:layout_constraintTop_toTopOf="@id/iv_kakao_sign_in"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_kakao_sign_in"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbtn_skip_sign_in"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:textSize="12sp"
+                    android:textColor="#bbbbbb"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:letterSpacing="0"
+                    android:text="I&apos;ll sign in later"
+                    android:includeFontPadding="false"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:textAllCaps="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_kakao_sign_in"
+                    android:layout_marginTop="37dp"
+                    android:layout_marginBottom="41dp"
+                    />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

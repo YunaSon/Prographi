@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="org.prography.lemorning.src.models.ForYou" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="143dp"
+        android:layout_height="191dp"
+        android:elevation="2dp">
+
+        <ImageView
+            android:id="@+id/iv_item_foryou"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            android:foreground="@drawable/background_gradient_top0000_bottom1000"
+            tools:src="@drawable/img_foryou_sample1"
+            bind_img_url_round_8="@{item.thumbnail}"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/tv_category_item_foryou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#ccffffff"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/timeburnernormal"
+            tools:text="Morning Breaker"
+            android:text="@{!item.tags.empty ? `#` + item.tags[0] : `#None`}"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_item_foryou"
+            app:layout_constraintStart_toStartOf="@id/iv_item_foryou"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp" />
+
+        <TextView
+            android:id="@+id/tv_title_item_foryou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:includeFontPadding="false"
+            tools:text="과로사와 함께"
+            android:text="@{item.title}"
+            android:elevation="2dp"
+            android:fontFamily="@font/timeburnerbold"
+            app:layout_constraintStart_toStartOf="@id/iv_item_foryou"
+            app:layout_constraintBottom_toBottomOf="@id/iv_item_foryou"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="8dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

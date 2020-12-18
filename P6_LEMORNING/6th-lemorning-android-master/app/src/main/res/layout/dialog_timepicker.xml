@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_dialog_timepicker"
+    android:background="@drawable/background_round_shape_8_white"
+    android:padding="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp">
+
+    <TextView
+        android:id="@+id/tv_title_dialog_timepicker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#171717"
+        android:lineSpacingExtra="6sp"
+        android:gravity="center_horizontal"
+        android:text="When to wake up?"
+        android:fontFamily="@font/timeburnerbold"
+        app:layout_constraintBottom_toTopOf="@id/tv_am_dialog_timepicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_am_dialog_timepicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:text="AM"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_dialog_timepicker"
+        android:fontFamily="@font/timeburnerbold"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_pm_dialog_timepicker"
+        android:layout_marginBottom="33dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_pm_dialog_timepicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#efefef"
+        android:fontFamily="@font/timeburnerbold"
+        android:text="PM"
+        android:includeFontPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/tv_am_dialog_timepicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mbtn_submit_dialog_timepicker"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="64dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mbtn_submit_dialog_timepicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set time"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:includeFontPadding="false"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="2dp"
+        android:fontFamily="@font/timeburnerbold"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_pm_dialog_timepicker"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

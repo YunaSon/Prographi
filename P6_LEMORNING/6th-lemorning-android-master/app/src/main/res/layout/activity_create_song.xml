@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="org.prography.lemorning.src.viewmodel.CreateSongViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_subtitle_create_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"
+            android:lineSpacingExtra="4sp"
+            android:text="Make Your Alarm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/timeburnernormal"
+            android:includeFontPadding="false"
+            />
+
+        <TextView
+            android:id="@+id/tv_title_create_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#171717"
+            android:text="Show your song"
+            android:fontFamily="@font/timeburnerbold"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_subtitle_create_song"
+            android:layout_marginStart="30dp"
+            />
+
+        <ImageView
+            android:id="@+id/iv_thumbnail_create_song"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_create_song"
+            android:layout_marginTop="20dp"
+            bind_profile_uri="@{viewmodel.profileUri}"
+            android:src="@drawable/ic_lemorning"/>
+
+        <ImageView
+            android:id="@+id/iv_change_create_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera"
+            app:layout_constraintEnd_toEndOf="@id/iv_thumbnail_create_song"
+            app:layout_constraintBottom_toBottomOf="@id/iv_thumbnail_create_song" />
+
+        <EditText
+            android:id="@+id/et_title_create_song"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/iv_thumbnail_create_song"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@null"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:includeFontPadding="false"
+            android:textColorHint="#efefef"
+            android:hint="Input title" />
+
+        <com.visualizer.amplitude.AudioRecordView
+            android:id="@+id/arv_create_song"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_title_create_song"
+            app:layout_constraintBottom_toTopOf="@id/mbtn_record_create_song"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            app:chunkSoftTransition="true"
+            app:chunkRoundedCorners="true"
+            app:chunkAlignTo="center"
+            app:chunkColor="@color/colorPrimary"
+            app:chunkSpace="2dp"
+            app:chunkWidth="4dp"
+            app:chunkMaxHeight="60dp"
+            app:chunkMinHeight="4dp"
+
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbtn_record_create_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="녹음하기"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_title_create_song"
+            android:layout_marginTop="80dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbtn_play_create_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="듣기"
+            android:enabled="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mbtn_record_create_song"
+            android:layout_marginTop="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbtn_submit_create_song"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Upload Alarm"
+            android:textAllCaps="false"
+            android:fontFamily="@font/timeburnerbold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.prography.lemorning">
+    <!-- 알람용 퍼미션 -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".ApplicationClass"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".src.view.AddCardActivity"></activity>
+        <activity android:name=".src.view.CardActivity" />
+        <activity android:name=".src.view.MainActivity" />
+        <activity android:name=".src.view.AlarmSettingActivity" />
+        <activity
+            android:name=".src.view.AlarmStartActivity"
+            android:excludeFromRecents="true" />
+        <activity
+            android:name=".src.view.PlaySongActivity"
+            android:theme="@style/TransparentStatusBar" />
+        <activity android:name=".src.view.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".src.view.signin.SignInActivity" />
+        <activity android:name=".src.view.signup.SignUpActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat" />
+        <activity android:name=".src.view.MyPageActivity" />
+        <activity android:name=".src.view.CreateSongActivity" />
+
+        <receiver android:name=".src.AlarmReceiver" />
+        <receiver
+            android:name=".src.DeviceBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".src.AlarmService" />
+    </application>
+
+</manifest>

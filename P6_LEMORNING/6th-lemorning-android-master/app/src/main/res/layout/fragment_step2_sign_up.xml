@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="org.prography.lemorning.utils.Converters"/>
+        <variable
+            name="viewmodel"
+            type="org.prography.lemorning.src.viewmodel.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_title_step2_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Sign Up"
+                    android:includeFontPadding="false"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_profile_step2_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="48dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_step_step2_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toEndOf="@id/tv_title_step2_sign_up"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_title_step2_sign_up"
+                    android:layout_marginStart="6dp"
+                    android:text="( 2 / 3 )"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_profile_step2_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Profile"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title_step2_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/iv_profile_step2_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="25dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_profile_step2_sign_up"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_profile"
+                    bind_profile_uri="@{viewmodel.profileUri}"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_profile_step2_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/tv_nickname_step2_sign_up"
+                    android:layout_marginTop="10dp" />
+
+                <ImageView
+                    android:id="@+id/iv_change_profile_step2_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_camera"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_profile_step2_sign_up"
+                    app:layout_constraintEnd_toEndOf="@id/iv_profile_step2_sign_up" />
+
+                <TextView
+                    android:id="@+id/tv_nickname_step2_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Nickname"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_profile_step2_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/et_nickname_step2_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+
+                <EditText
+                    android:id="@+id/et_nickname_step2_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_nickname_step2_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/tv_gender_step2_sign_up"
+                    android:background="@drawable/background_round_4_border_efefef"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="70dp"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    android:includeFontPadding="false"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#bbbbbb"
+                    android:textSize="12sp"
+                    android:text="@={viewmodel.nickname}"
+                    android:hint="Enter your nickname (6~12 letters)"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp" />
+
+                <TextView
+                    android:id="@+id/tv_gender_step2_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Gender"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_nickname_step2_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/tv_gender_man_step2_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_gender_man_step2_sign_up"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@{Converters.txtColorFromGender(context, viewmodel.gender, 0)}"
+                    android:background="@{Converters.backDrawableFromGender(context, viewmodel.gender, 0)}"
+                    android:text="Man"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="0"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:onClick="@{() -> viewmodel.onClickGender(0)}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_gender_step2_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/tv_birth_desc_step2_sign_up"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_gender_woman_step2_sign_up"/>
+
+                <TextView
+                    android:id="@+id/tv_gender_woman_step2_sign_up"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Woman"
+                    android:textColor="@{Converters.txtColorFromGender(context, viewmodel.gender, 1)}"
+                    android:background="@{Converters.backDrawableFromGender(context, viewmodel.gender, 1)}"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="0"
+                    android:onClick="@{() -> viewmodel.onClickGender(1)}"
+                    app:layout_constraintStart_toEndOf="@id/tv_gender_man_step2_sign_up"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_gender_man_step2_sign_up"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_gender_man_step2_sign_up"/>
+
+                <TextView
+                    android:id="@+id/tv_birth_desc_step2_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Birth"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_gender_man_step2_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/tv_birth_step2_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_birth_step2_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/background_round_4_border_efefef"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:gravity="center"
+                    android:hint="YYYY-MM-DD"
+                    android:text="@{viewmodel.birth}"
+                    android:letterSpacing="0.2"
+                    android:includeFontPadding="false"
+                    android:paddingStart="20dp"
+                    android:paddingTop="11dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="11dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#bbbbbb"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_birth_desc_step2_sign_up" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbtn_next_step2_sign_up"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:onClick="@{() -> viewmodel.onClickNext(1)}"
+                    android:text="Next Step"
+                    android:textAllCaps="false"
+                    app:cornerRadius="4dp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_birth_step2_sign_up" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="143dp"
+        android:layout_height="191dp"
+        android:background="@drawable/shape_8_round_gradient_top1000_bottom2000"
+        android:elevation="2dp">
+
+        <View
+            android:id="@+id/tv_category_item_foryou"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:elevation="2dp"
+            android:background="@drawable/shape_8_round_gradient_right1000_left2000"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_item_foryou"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.3"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            />
+
+        <View
+            android:id="@+id/tv_title_item_foryou"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:elevation="2dp"
+            android:background="@drawable/shape_8_round_gradient_right1000_left2000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.6"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="8dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

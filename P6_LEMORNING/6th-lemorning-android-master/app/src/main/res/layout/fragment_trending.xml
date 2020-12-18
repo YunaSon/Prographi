@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="java.util.Date"/>
+        <variable
+            name="viewmodel"
+            type="org.prography.lemorning.src.viewmodel.TrendingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:overScrollMode="never"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_date_trending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#bfbfbf"
+                    time="@{System.currentTimeMillis()}"
+                    tools:text="30 Apr 2020"
+                    android:fontFamily="@font/timeburnernormal"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="57dp"
+                    android:layout_marginStart="30dp" />
+
+                <TextView
+                    android:id="@+id/tv_title_trending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textColor="#171717"
+                    android:text="For you"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_date_trending"
+                    android:layout_marginStart="30dp" />
+
+                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                    android:id="@+id/di_main_trending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title_trending"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    app:dotsSize="6dp"
+                    app:dotsCornerRadius="3dp"
+                    app:dotsColor="#efefef"
+                    app:selectedDotColor="#fbc900"
+                    app:dotsSpacing="3dp"
+                    app:dotsWidthFactor="3" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_foryou_trending"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/di_main_trending"
+                    android:layout_marginTop="20dp"
+                    android:clipToPadding="false"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    tools:itemCount="4"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_foryou"
+                    android:orientation="horizontal"/>
+
+                <TextView
+                    android:id="@+id/tv_title_popular_trending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="#171717"
+                    android:lineSpacingExtra="5sp"
+                    android:text="Popular"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintTop_toBottomOf="@id/rv_foryou_trending"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="40dp"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbtn_period_popular_trending"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:textSize="12sp"
+                    android:textColor="#bfbfbf"
+                    android:text="Weekly"
+                    android:fontFamily="@font/timeburnernormal"
+                    android:textAllCaps="false"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="0"
+                    app:layout_constraintStart_toEndOf="@id/tv_title_popular_trending"
+                    app:layout_constraintTop_toTopOf="@id/tv_title_popular_trending"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_title_popular_trending"
+                    android:layout_marginStart="10dp"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_search_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_title_popular_trending"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_title_popular_trending"
+                    android:layout_marginEnd="30dp"
+                    android:transitionName="search_box"
+                    android:background="@drawable/shape_round_12_white"
+                    android:padding="10dp"
+                    android:elevation="6dp">
+
+                    <ImageView
+                        android:id="@+id/iv_search_icon"
+                        android:src="@drawable/ic_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:transitionName="search_icon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_popular_trending"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title_popular_trending"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginTop="20dp"
+                    tools:listitem="@layout/item_popular"
+                    tools:itemCount="3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

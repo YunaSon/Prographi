@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="org.prography.lemorning.src.viewmodel.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_title_step3_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Sign Up"
+                    android:includeFontPadding="false"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_terms_step3_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="48dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_step_step3_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toEndOf="@id/tv_title_step3_sign_up"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_title_step3_sign_up"
+                    android:layout_marginStart="6dp"
+                    android:text="( 3 / 3 )"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_terms_step3_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    android:text="Accept Terms"
+                    android:textColor="#171717"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title_step3_sign_up" />
+
+                <CheckBox
+                    android:id="@+id/cb_agree_all_step3_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    android:includeFontPadding="false"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:checked="@{viewmodel.agreeAll}"
+                    android:onClick="@{() -> viewmodel.onClickAgreement(0, viewmodel.agreeAll)}"
+                    android:text="모두 동의"
+                    android:textColor="#3f3f3f"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_terms_step3_sign_up"
+                    tools:checked="true" />
+
+                <CheckBox
+                    android:id="@+id/cb_agree_first_step3_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cb_agree_all_step3_sign_up"
+                    android:checked="@{viewmodel.agreeFirst}"
+                    android:onClick="@{() -> viewmodel.onClickAgreement(1, viewmodel.agreeFirst)}"
+                    android:text="이용약관 동의"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    tools:checked="true"
+                    android:includeFontPadding="false"
+                    android:textColor="#3f3f3f"
+                    android:textSize="12sp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp" />
+
+                <CheckBox
+                    android:id="@+id/cb_agree_second_step3_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cb_agree_first_step3_sign_up"
+                    android:checked="@{viewmodel.agreeSecond}"
+                    android:onClick="@{() -> viewmodel.onClickAgreement(2, viewmodel.agreeSecond)}"
+                    android:text="개인정보 처리 방침 동의"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    tools:checked="true"
+                    android:includeFontPadding="false"
+                    android:textColor="#3f3f3f"
+                    android:textSize="12sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp" />
+
+                <CheckBox
+                    android:id="@+id/cb_agree_third_step3_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cb_agree_second_step3_sign_up"
+                    android:checked="@{viewmodel.agreeThird}"
+                    android:onClick="@{() -> viewmodel.onClickAgreement(3, viewmodel.agreeThird)}"
+                    android:text="광고성 메일 수신 동의 (선택)"
+                    android:fontFamily="@font/notosanscjkkr_medium"
+                    tools:checked="true"
+                    android:includeFontPadding="false"
+                    android:textColor="#3f3f3f"
+                    android:textSize="12sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbtn_next_step3_sign_up"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:text="Sign Up"
+                    android:onClick="@{() -> viewmodel.onClickNext(2)}"
+                    android:textAllCaps="false"
+                    app:cornerRadius="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

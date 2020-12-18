@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="org.prography.lemorning.src.viewmodel.AddCardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        tools:context="org.prography.lemorning.src.view.AddCardActivity">
+        <ImageView
+            android:id="@+id/iv_close_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_171717"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginTop="30dp" />
+
+        <TextView
+            android:id="@+id/tv_title_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#171717"
+            android:text="Add Payment"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/timeburnerbold" />
+
+        <TextView
+            android:id="@+id/tv_type_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#171717"
+            android:text="Card Type"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_add_card"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/timeburnerbold" />
+
+        <CheckBox
+            android:id="@+id/cb_private_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:includeFontPadding="false"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="개인카드"
+            android:textColor="#3f3f3f"
+            android:textSize="12sp"
+            android:paddingStart="12dp"
+            android:layout_marginTop="8dp"
+            android:translationX="-7dp"
+            android:checked="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cb_company_add_card"
+            app:layout_constraintTop_toBottomOf="@id/tv_type_add_card" />
+
+        <CheckBox
+            android:id="@+id/cb_company_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosanscjkkr_medium"
+            android:includeFontPadding="false"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="법인카드"
+            android:textColor="#3f3f3f"
+            android:textSize="12sp"
+            android:paddingStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="64dp"
+            app:layout_constraintStart_toEndOf="@id/cb_private_add_card"
+            app:layout_constraintTop_toBottomOf="@id/tv_type_add_card" />
+
+        <TextView
+            android:id="@+id/tv_number_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#171717"
+            android:text="Card No."
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cb_private_add_card"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/timeburnerbold" />
+
+        <EditText
+            android:id="@+id/et_number_add_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_number_add_card"
+            android:background="@drawable/background_round_4_border_efefef"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:imeOptions="actionNext"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#bbbbbb"
+            android:textSize="12sp"
+            android:hint="1234-5678-1234-5678"
+            android:fontFamily="@font/timeburnerbold"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp" />
+
+        <TextView
+            android:id="@+id/tv_expiration_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#171717"
+            android:text="Expiration"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_number_add_card"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/timeburnerbold" />
+
+        <EditText
+            android:id="@+id/et_expiration_add_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layout_password_add_card"
+            app:layout_constraintTop_toBottomOf="@id/tv_expiration_add_card"
+            android:background="@drawable/background_round_4_border_efefef"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:imeOptions="actionNext"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#bbbbbb"
+            android:textSize="12sp"
+            android:hint="MM/YY"
+            android:fontFamily="@font/timeburnerbold"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp" />
+
+        <TextView
+            android:id="@+id/tv_password_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#171717"
+            android:text="Password"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/layout_password_add_card"
+            app:layout_constraintTop_toBottomOf="@id/et_number_add_card"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/timeburnerbold" />
+
+        <LinearLayout
+            android:id="@+id/layout_password_add_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            app:layout_constraintStart_toEndOf="@id/et_expiration_add_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_password_add_card">
+            <EditText
+                android:id="@+id/et_password_add_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_round_4_border_efefef"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:imeOptions="actionNext"
+                android:includeFontPadding="false"
+                android:inputType="number"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#bbbbbb"
+                android:textSize="12sp"
+                android:hint="**"
+                android:fontFamily="@font/timeburnerbold"
+                android:paddingTop="11dp"
+                android:paddingBottom="11dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="**"
+                android:textSize="12sp"
+                android:textColor="#171717"
+                android:fontFamily="@font/timeburnerbold"
+                android:layout_weight="2"
+                android:paddingStart="20dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_birth_add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#171717"
+            android:text="Expiration"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_expiration_add_card"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/timeburnerbold" />
+
+        <EditText
+            android:id="@+id/et_birth_add_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_birth_add_card"
+            android:background="@drawable/background_round_4_border_efefef"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:imeOptions="actionNext"
+            android:includeFontPadding="false"
+            android:inputType="number"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#bbbbbb"
+            android:textSize="12sp"
+            android:hint="ex) 991010"
+            android:fontFamily="@font/timeburnerbold"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mbtn_next_step1_sign_up"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/timeburnerbold"
+            android:includeFontPadding="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:letterSpacing="0"
+            android:text="Add Card"
+            android:textAllCaps="false"
+            app:cornerRadius="4dp"
+            android:layout_marginTop="120dp"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_birth_add_card" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

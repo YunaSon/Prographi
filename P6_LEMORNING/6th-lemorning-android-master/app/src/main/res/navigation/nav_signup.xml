@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_signup"
+    app:startDestination="@id/fg_step1_signup">
+
+    <fragment
+        android:id="@+id/fg_step1_signup"
+        android:name="org.prography.lemorning.src.view.signup.Step1Fragment"
+        tools:layout="@layout/fragment_step1_sign_up">
+        <action
+            android:id="@+id/action_to_step2"
+            app:destination="@id/fg_step2_signup"
+            app:popExitAnim="@anim/anim_to_right"
+            app:popEnterAnim="@anim/anim_from_left"
+            app:enterAnim="@anim/anim_from_right"
+            app:exitAnim="@anim/anim_to_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fg_step2_signup"
+        android:name="org.prography.lemorning.src.view.signup.Step2Fragment"
+        tools:layout="@layout/fragment_step2_sign_up">
+        <action
+            android:id="@+id/action_to_step3"
+            app:destination="@id/fg_step3_signup"
+            app:popExitAnim="@anim/anim_to_right"
+            app:popEnterAnim="@anim/anim_from_left"
+            app:enterAnim="@anim/anim_from_right"
+            app:exitAnim="@anim/anim_to_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fg_step3_signup"
+        android:name="org.prography.lemorning.src.view.signup.Step3Fragment"
+        tools:layout="@layout/fragment_step3_sign_up">
+        <action
+            android:id="@+id/action_to_step4"
+            app:destination="@id/fg_step4_signup"
+            app:popExitAnim="@anim/anim_to_right"
+            app:popEnterAnim="@anim/anim_from_left"
+            app:enterAnim="@anim/anim_from_right"
+            app:exitAnim="@anim/anim_to_left"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fg_step4_signup"
+        android:name="org.prography.lemorning.src.view.signup.Step4Fragment"
+        tools:layout="@layout/fragment_step4_sign_up"/>
+
+</navigation>

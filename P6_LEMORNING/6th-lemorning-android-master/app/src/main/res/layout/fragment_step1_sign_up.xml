@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="org.prography.lemorning.utils.Converters" />
+        <import type="org.prography.lemorning.utils.Validators" />
+        <variable
+            name="viewmodel"
+            type="org.prography.lemorning.src.viewmodel.SignUpViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_title_step1_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Sign Up"
+                    android:includeFontPadding="false"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/tv_email_step1_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="48dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_step_step1_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toEndOf="@id/tv_title_step1_sign_up"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_title_step1_sign_up"
+                    android:layout_marginStart="6dp"
+                    android:text="( 1 / 3 )"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_email_step1_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Email"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title_step1_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/et_email_step1_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="25dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_check_email_step1_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="@{Converters.txtColorFromEmailValidation(context, viewmodel.emailStatus)}"
+                    android:fontFamily="@font/timeburnernormal"
+                    android:text="@{Converters.txtFromEmailValidation(viewmodel.emailStatus)}"
+                    tools:text="You can use it!"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toEndOf="@id/tv_email_step1_sign_up"
+                    app:layout_constraintTop_toTopOf="@id/tv_email_step1_sign_up"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_email_step1_sign_up"
+                    android:layout_marginStart="20dp"
+                    />
+
+                <EditText
+                    android:id="@+id/et_email_step1_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_email_step1_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/tv_password_step1_sign_up"
+                    android:background="@drawable/background_round_4_border_efefef"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="70dp"
+                    android:maxLines="1"
+                    android:imeOptions="actionNext"
+                    android:includeFontPadding="false"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#bbbbbb"
+                    android:textSize="12sp"
+                    android:hint="Enter your Email"
+                    android:text="@={viewmodel.email}"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbtn_check_email_step1_sign_up"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:padding="0dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/timeburnerbold"
+                    app:layout_constraintEnd_toEndOf="@id/et_email_step1_sign_up"
+                    app:layout_constraintTop_toTopOf="@id/et_email_step1_sign_up"
+                    app:layout_constraintBottom_toBottomOf="@id/et_email_step1_sign_up"
+                    android:layout_marginEnd="12dp"
+                    android:onClick="@{() -> viewmodel.onClickValidateEmail()}"
+                    android:text="Check"
+                    android:textAllCaps="false"
+                    android:letterSpacing="0" />
+
+                <TextView
+                    android:id="@+id/tv_password_step1_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#171717"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:text="Password"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_email_step1_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/et_password_step1_sign_up"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_check_password_step1_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="@{Converters.txtColorFromPasswordValidation(context, Validators.isValidPasswords(viewmodel.password, viewmodel.passwordRe))}"
+                    android:fontFamily="@font/timeburnernormal"
+                    tools:text="Correct!"
+                    android:text="@{Converters.txtFromPasswordValidation(Validators.isValidPasswords(viewmodel.password, viewmodel.passwordRe))}"
+                    android:includeFontPadding="false"
+                    app:layout_constraintStart_toEndOf="@id/tv_password_step1_sign_up"
+                    app:layout_constraintTop_toTopOf="@id/tv_password_step1_sign_up"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_password_step1_sign_up"
+                    android:layout_marginStart="20dp"
+                    />
+
+                <EditText
+                    android:id="@+id/et_password_step1_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_password_step1_sign_up"
+                    app:layout_constraintBottom_toTopOf="@id/et_password_check_step1_sign_up"
+                    android:background="@drawable/background_round_4_border_efefef"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:imeOptions="actionNext"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#bbbbbb"
+                    android:textSize="12sp"
+                    android:text="@={viewmodel.password}"
+                    android:hint="Enter your Password (6~20 letters)"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp" />
+
+                <EditText
+                    android:id="@+id/et_password_check_step1_sign_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_password_step1_sign_up"
+                    android:background="@drawable/background_round_4_border_efefef"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:imeOptions="actionDone"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="#bbbbbb"
+                    android:text="@={viewmodel.passwordRe}"
+                    android:textSize="12sp"
+                    android:hint="Confirm your Password"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:paddingTop="11dp"
+                    android:paddingBottom="11dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/mbtn_next_step1_sign_up"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="@font/timeburnerbold"
+                    android:includeFontPadding="false"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:letterSpacing="0"
+                    android:text="Next Step"
+                    android:onClick="@{() -> viewmodel.onClickNext(0)}"
+                    android:textAllCaps="false"
+                    app:cornerRadius="4dp"
+                    android:layout_marginTop="120dp"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_password_check_step1_sign_up" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

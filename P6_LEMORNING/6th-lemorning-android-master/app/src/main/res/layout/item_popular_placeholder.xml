@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/iv_thumbnail_item_popular"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            android:background="@drawable/shape_8_round_gradient_right1000_left2000"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp" />
+
+        <View
+            android:id="@+id/tv_rank_item_popular"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+
+            android:background="@drawable/shape_8_round_gradient_right1000_left2000"
+            app:layout_constraintStart_toEndOf="@id/iv_thumbnail_item_popular"
+            app:layout_constraintTop_toTopOf="@id/iv_thumbnail_item_popular"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_item_popular"
+            app:layout_constraintWidth_percent="0.05"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="18dp"
+            android:includeFontPadding="false" />
+
+        <View
+            android:id="@+id/tv_title_item_popular"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:background="@drawable/shape_8_round_gradient_right1000_left2000"
+            android:layout_marginTop="4dp"
+            app:layout_constraintWidth_percent="0.4"
+            app:layout_constraintStart_toStartOf="@id/tv_rank_item_popular"
+            app:layout_constraintTop_toBottomOf="@id/tv_rank_item_popular"
+            app:layout_constraintBottom_toTopOf="@id/tv_category_item_popular"/>
+
+        <View
+            android:id="@+id/tv_category_item_popular"
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:background="@drawable/shape_8_round_gradient_right1000_left2000"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintStart_toStartOf="@id/tv_rank_item_popular"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_item_popular"
+            app:layout_constraintBottom_toBottomOf="@id/iv_thumbnail_item_popular"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

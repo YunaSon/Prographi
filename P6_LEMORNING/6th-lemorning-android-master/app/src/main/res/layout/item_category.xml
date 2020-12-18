@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="org.prography.lemorning.src.models.Category" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="9dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/shape_round_8_ffffff"
+        android:padding="10dp"
+        app:layout_constraintDimensionRatio="1"
+        android:elevation="2dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_item_category"
+            android:src="@drawable/ic_lemorning"
+            bind_img_url="@{item.imgUrl}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_name_item_category" />
+
+        <TextView
+            android:id="@+id/tv_name_item_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="category"
+            android:text="@{item.name}"
+            android:textColor="#171717"
+            android:textSize="12sp"
+            android:fontFamily="@font/timeburnernormal"
+            android:layout_marginTop="4dp"
+            android:includeFontPadding="false"
+            android:letterSpacing="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_item_category"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

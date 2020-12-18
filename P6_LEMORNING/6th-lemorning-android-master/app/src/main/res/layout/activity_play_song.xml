@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="org.prography.lemorning.utils.Converters"/>
+        <variable
+            name="viewmodel"
+            type="org.prography.lemorning.src.viewmodel.PlaySongViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/iv_back_play_song"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="#000000"
+            android:foreground="#61000000"
+            bind_img_url_opaque="@{viewmodel.playSong.imgUrl}"
+            tools:src="@drawable/img_album_sample2_kkang"
+            tools:scaleType="centerCrop"
+            />
+
+        <org.prography.lemorning.utils.components.CircleVisualizerSmooth
+            android:id="@+id/visualizer_play_song"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/sd_seekbar_play_song"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@id/guide4_play_song"
+            app:layout_constraintStart_toEndOf="@id/guide3_play_song"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_play_song" />
+
+        <ImageView
+            android:id="@+id/iv_sound_effect_play_song"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_sound_wave_big_circle"
+            app:layout_constraintBottom_toTopOf="@+id/sd_seekbar_play_song"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@id/guide4_play_song"
+            app:layout_constraintStart_toEndOf="@id/guide3_play_song"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_play_song" />
+
+        <ImageView
+            android:id="@+id/iv_thumbnail_play_song"
+            bind_img_url_circle="@{viewmodel.playSong.imgUrl}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:transitionName="thumbnail_album"
+            app:layout_constraintBottom_toBottomOf="@id/iv_sound_effect_play_song"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="@id/guide2_play_song"
+            app:layout_constraintStart_toStartOf="@id/guide1_play_song"
+            app:layout_constraintTop_toTopOf="@id/iv_sound_effect_play_song"
+            tools:src="@drawable/img_album_sample2_kkang" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide1_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide2_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide3_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide4_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <TextView
+            android:id="@+id/tv_category_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"
+            android:text="@{!viewmodel.playSong.tags.empty ? `#` + viewmodel.playSong.tags.toString() : `None`}"
+            tools:text="Morning Breaker"
+            android:fontFamily="@font/timeburnernormal"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp" />
+
+        <TextView
+            android:id="@+id/tv_title_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="#ffffff"
+            android:text="@{viewmodel.playSong.title}"
+            tools:text="관짝밈"
+            android:fontFamily="@font/timeburnerbold"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_category_play_song"
+            android:layout_marginStart="30dp" />
+
+        <TextView
+            android:id="@+id/tv_start_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"
+            android:fontFamily="@font/timeburnerbold"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toStartOf="@id/sd_seekbar_play_song"
+            app:layout_constraintBottom_toTopOf="@id/sd_seekbar_play_song"
+            tools:text="-:--"
+            android:text="@{Converters.mediaPositionToRealTimeTxt(viewmodel.curTime)}"
+            />
+
+        <TextView
+            android:id="@+id/tv_end_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"
+            android:fontFamily="@font/timeburnerbold"
+            android:includeFontPadding="false"
+            app:layout_constraintEnd_toEndOf="@id/sd_seekbar_play_song"
+            app:layout_constraintBottom_toTopOf="@id/sd_seekbar_play_song"
+            android:text="-:--"
+            />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sd_seekbar_play_song"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="30dp"
+            android:indeterminate="false"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            tools:valueTo="100"
+            app:labelBehavior="gone"
+            android:valueTo="100"
+            android:valueFrom="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/iv_play_play_song"
+            android:layout_marginBottom="10dp"
+            app:thumbColor="@color/colorPrimary"
+            app:thumbElevation="2dp"
+            app:thumbRadius="6dp"
+            app:trackColorActive="@color/colorPrimary"
+            app:trackColorInactive="#88bfbfbf"
+            app:trackHeight="4dp"
+            android:value="@{viewmodel.curTime}"
+            tools:value="30" />
+
+        <ImageView
+            android:id="@+id/iv_play_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_pause"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_recommend_play_song"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_like_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_like"
+            app:layout_constraintEnd_toStartOf="@id/iv_more_play_song"
+            app:layout_constraintTop_toTopOf="@id/iv_play_play_song"
+            app:layout_constraintBottom_toBottomOf="@id/iv_play_play_song"
+            app:layout_constraintStart_toEndOf="@id/iv_play_play_song"/>
+
+        <ImageView
+            android:id="@+id/iv_more_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_play_play_song"
+            app:layout_constraintBottom_toBottomOf="@id/iv_play_play_song"
+            android:layout_marginEnd="30dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_more" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:id="@+id/iv_close_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_close_white"
+            app:iconPadding="0dp"
+            app:iconTint="#ffffff"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"/>
+
+
+        <TextView
+            android:id="@+id/tv_recommend_play_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"
+            android:includeFontPadding="false"
+            android:text="How about this?"
+            android:fontFamily="@font/timeburnernormal"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="54dp"
+            app:layout_constraintBottom_toTopOf="@id/rv_recommend_play_song"
+            />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recommend_play_song"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clipToPadding="false"
+            android:paddingStart="44dp"
+            android:paddingEnd="44dp"
+            android:layout_marginBottom="25dp"
+            tools:listitem="@layout/item_recommend_play_song"
+            tools:itemCount="3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

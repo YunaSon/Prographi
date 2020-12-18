@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="alarmViewModel"
+            type="org.prography.lemorning.src.viewmodel.AlarmDBViewModel" />
+        <variable
+            name="dateVM"
+            type="org.prography.lemorning.src.viewmodel.AlarmViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".src.view.AlarmFragment">
+        <TextView
+            android:id="@+id/alarm_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"
+            android:fontFamily="@font/timeburnernormal"
+            android:lineSpacingExtra="4sp"
+            time="@{System.currentTimeMillis()}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="57dp"
+            android:layout_marginStart="30dp"/>
+        <TextView
+            android:id="@+id/alarm_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Alarms"
+            android:fontFamily="@font/timeburnerbold"
+            android:textColor="#171717"
+            android:textSize="24sp"
+            android:lineSpacingExtra="7sp"
+            app:layout_constraintTop_toBottomOf="@+id/alarm_date"
+            app:layout_constraintLeft_toLeftOf="@+id/alarm_date"/>
+
+        <CheckBox
+            android:id="@+id/alarm_delete_check"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="16dp"
+            android:visibility="invisible"
+            android:background="@drawable/selector_alarm"
+            android:button="@null"
+            android:gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="11dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/alarm_scroll"/>
+
+        <TextView
+            android:id="@+id/alarm_edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"
+            android:lineSpacingExtra="6sp"
+            android:text="관리"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alarm_title"
+            android:layout_marginTop="11dp" />
+        <ImageView
+            android:id="@+id/alarm_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/img_recommend_thumb_sample1"
+            app:layout_constraintTop_toTopOf="@+id/alarm_date"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="30dp"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/alarm_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alarm_edit_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/alarm_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:alarms="@{alarmViewModel.all}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:viewModel="@{alarmViewModel}"
+                    app:setVM="@{dateVM}"/>
+
+                <ImageView
+                    android:id="@+id/alarm_add"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@color/selector_add"
+                    android:src="@drawable/ic_add_black_24dp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
