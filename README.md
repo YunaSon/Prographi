@@ -1,5 +1,5 @@
-# 프로그라피 활동내역
 
+# 프로그라피 활동내역
 - 분야: 딥러닝, CNN(Convolutional Nueral Network)
 - 기술스택: PyTorch, Tensorflow, Flask
 - 활동기간: 2019.09 ~ 2020.12 (기수 5기 ~ 6.5기)
@@ -7,8 +7,7 @@
   1. 5기: FASH, ios App
   2. 6기~6.5기: Lemorning, Android App
 
-- 전체 내용 정리
-https://breakout-theworld.tistory.com/35
+## 전체 활동 내역 https://breakout-theworld.tistory.com/35
 
 
 ## 5기
