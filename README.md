@@ -7,7 +7,8 @@
   1. 5기: FASH, ios App
   2. 6기~6.5기: Lemorning, Android App
 
-## 전체 활동 내역 https://breakout-theworld.tistory.com/35
+## 전체 활동 내역 
+https://breakout-theworld.tistory.com/35
 
 
 ## 5기
